@@ -5,15 +5,42 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "remix";
+} from 'remix';
+import styles from './styles/app.css';
+
+export function links() {
+  return [
+    { rel: 'stylesheet', href: styles },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossOrigin: 'true',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap',
+    },
+  ];
+}
 
 export function meta() {
-  return { title: "New Remix App" };
+  return { title: 'Patrick Sullivan - Dev' };
 }
 
 export default function App() {
+  let isDarkMode;
+  try {
+    isDarkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (error) {
+    console.log('error', error);
+  }
+
   return (
-    <html lang="en">
+    <html lang="en" {...(isDarkMode ? { className: 'dark' } : {})}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
