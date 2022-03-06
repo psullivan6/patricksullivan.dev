@@ -19,7 +19,7 @@ export function links() {
     },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Titillium+Web:wght@900&display=swap',
     },
   ];
 }
@@ -35,9 +35,7 @@ export default function App() {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     }
-  } catch (error) {
-    console.log('error', error);
-  }
+  } catch (error) {}
 
   return (
     <html lang="en" {...(isDarkMode ? { className: 'dark' } : {})}>
