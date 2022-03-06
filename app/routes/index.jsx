@@ -13,8 +13,8 @@ export default function Index() {
   } catch (error) {}
 
   return (
-    <main className="flex flex-col lg:flex-row px-40 py-28">
-      <section className="flex items-center w-full lg:w-1/2 relative">
+    <main className="flex flex-col lg:flex-row">
+      <section className="flex items-center w-full lg:w-1/2 relative pl-40">
         <h1 className="text-7xl z-10">
           <span className="block font-mono font-thin tracking-[-0.25rem] text-5xl -mb-3">
             Patrick
@@ -27,7 +27,7 @@ export default function Index() {
           className="absolute left-0 z-10 w-80"
         /> */}
 
-        <div className="absolute w-56 h-56 top-1/2 -translate-y-1/2 -left-20">
+        <div className="absolute w-56 h-56 top-1/2 left-40 -translate-y-1/2 -translate-x-20">
           <svg
             viewBox="0 0 200 200"
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="w-full lg:w-1/2 overflow-auto relative">
+      <section className="w-full py-24 pr-40 lg:w-1/2 overflow-auto relative">
         <div className="fixed top-3 right-3 flex items-center">
           <input
             type="checkbox"
