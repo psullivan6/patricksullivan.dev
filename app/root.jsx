@@ -28,13 +28,24 @@ export function meta() {
   return { title: 'Patrick Sullivan - Dev' };
 }
 
+const getIsDarkMode = () => {
+  if (sessionStorage.getItem('darkModePreference') != null) {
+    return sessionStorage.getItem('darkModePreference') === 'dark';
+  }
+
+  const isDarkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+
+  if (isDarkMode) {
+    document.documentElement.classList.add('dark');
+  }
+
+  return false;
+};
+
 export default function App() {
   let isDarkMode;
   try {
-    isDarkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    }
+    isDarkMode = getIsDarkMode();
   } catch (error) {}
 
   return (
