@@ -10,5 +10,5 @@ main {
 }
 
 body {
-  @apply bg-amber-50 dark:bg-zinc-900 text-stone-900 dark:text-stone-400 transition-colors;
+  @apply bg-white dark:bg-zinc-900 text-stone-900 dark:text-stone-400 transition-colors selection:bg-cyan-200 selection:text-cyan-900 dark:selection:bg-blue-900 dark:selection:text-blue-300;
 }
