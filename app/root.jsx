@@ -1,11 +1,8 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from 'remix';
+import { useState } from 'react';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
+import KeyPressAlert, {
+  links as KeyPressAlertLinks,
+} from './components/KeyPressAlert/KeyPressAlert';
 import styles from './styles/app.css';
 
 export function links() {
@@ -21,6 +18,7 @@ export function links() {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Titillium+Web:wght@900&display=swap',
     },
+    ...KeyPressAlertLinks(),
   ];
 }
 
@@ -42,10 +40,53 @@ const getIsDarkMode = () => {
   return false;
 };
 
+const keyColors = {
+  r: 'red',
+  g: 'green',
+  b: 'blue',
+};
+
 export default function App() {
+  const [colorKeyPress, setColorKeyPress] = useState('b');
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+
   let isDarkMode;
   try {
     isDarkMode = getIsDarkMode();
+  } catch (error) {}
+
+  const handleKeyDown = (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return false;
+    }
+
+    const { key } = event;
+
+    if (['r', 'g', 'b'].includes(key)) {
+      const nodes = document.querySelectorAll('[data-themed]');
+      nodes.forEach((node) => {
+        node.classList.replace(`bg-${keyColors[colorKeyPress]}`, `bg-${keyColors[key]}`);
+        node.classList.replace(`fill-${keyColors[colorKeyPress]}`, `fill-${keyColors[key]}`);
+        node.classList.replace(
+          `fill-${keyColors[colorKeyPress]}-accent`,
+          `fill-${keyColors[key]}-accent`
+        );
+        node.classList.replace(
+          `fill-${keyColors[colorKeyPress]}-highlight`,
+          `fill-${keyColors[key]}-highlight`
+        );
+        node.classList.replace(
+          `fill-${keyColors[colorKeyPress]}-text`,
+          `fill-${keyColors[key]}-text`
+        );
+      });
+      setColorKeyPress(key);
+      setIsAlertOpen(true);
+    }
+  };
+
+  try {
+    document.documentElement.addEventListener('keydown', handleKeyDown);
   } catch (error) {}
 
   return (
@@ -58,6 +99,9 @@ export default function App() {
       </head>
       <body>
         <Outlet />
+        {isAlertOpen && (
+          <KeyPressAlert pressedKey={colorKeyPress} onClose={() => setIsAlertOpen(false)} />
+        )}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

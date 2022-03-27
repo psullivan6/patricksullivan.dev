@@ -12,3 +12,72 @@ main {
 body {
   @apply bg-white dark:bg-zinc-900 text-stone-900 dark:text-stone-400 transition-colors selection:bg-cyan-200 selection:text-cyan-900 dark:selection:bg-blue-900 dark:selection:text-blue-300;
 }
+
+/* ========================================================================== */
+/* Red */
+/* ========================================================================== */
+.bg-red {
+  @apply bg-rose-400 transition-colors;
+}
+
+.fill-red {
+  @apply fill-rose-400 transition-colors;
+}
+
+.fill-red-highlight {
+  @apply fill-rose-600 transition-colors;
+}
+
+.fill-red-accent {
+  @apply fill-red-200 transition-colors;
+}
+
+.fill-red-text {
+  @apply fill-stone-900 transition-colors;
+}
+
+/* ========================================================================== */
+/* Blue */
+/* ========================================================================== */
+.bg-blue {
+  @apply bg-sky-400 transition-colors;
+}
+
+.fill-blue {
+  @apply fill-cyan-300 transition-colors;
+}
+
+.fill-blue-highlight {
+  @apply fill-blue-500 transition-colors;
+}
+
+.fill-blue-accent {
+  @apply fill-blue-200 transition-colors;
+}
+
+.fill-blue-text {
+  @apply fill-slate-800 transition-colors;
+}
+
+/* ========================================================================== */
+/* Green */
+/* ========================================================================== */
+.bg-green {
+  @apply bg-emerald-400 transition-colors;
+}
+
+.fill-green {
+  @apply fill-emerald-400 transition-colors;
+}
+
+.fill-green-highlight {
+  @apply fill-emerald-600 transition-colors;
+}
+
+.fill-green-accent {
+  @apply fill-teal-300 transition-colors;
+}
+
+.fill-green-text {
+  @apply fill-neutral-900 transition-colors;
+}
