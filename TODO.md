@@ -1,0 +1,8 @@
+- use a translation provider to write a snarky version with curse-words
+- add fade in for logo on page load animation
+- use request animation frames for page load animation instead of setTimeout?
+- make the logo blobs animate
+- add work section
+  - way to segment different roles at same company
+- add animation and/or logos for the social media section
+- add previous / next buttons to primary section to get to work ... OR make it scrollable

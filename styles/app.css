@@ -17,67 +17,67 @@ body {
 /* Red */
 /* ========================================================================== */
 .bg-red {
-  @apply bg-rose-400 transition-colors;
+  @apply bg-rose-400;
 }
 
 .fill-red {
-  @apply fill-rose-400 transition-colors;
+  @apply fill-rose-400;
 }
 
 .fill-red-highlight {
-  @apply fill-rose-600 transition-colors;
+  @apply fill-rose-600;
 }
 
 .fill-red-accent {
-  @apply fill-red-200 transition-colors;
+  @apply fill-red-200;
 }
 
 .fill-red-text {
-  @apply fill-stone-900 transition-colors;
+  @apply fill-stone-900;
 }
 
 /* ========================================================================== */
 /* Blue */
 /* ========================================================================== */
 .bg-blue {
-  @apply bg-sky-400 transition-colors;
+  @apply bg-sky-400;
 }
 
 .fill-blue {
-  @apply fill-cyan-300 transition-colors;
+  @apply fill-cyan-300;
 }
 
 .fill-blue-highlight {
-  @apply fill-blue-500 transition-colors;
+  @apply fill-blue-500;
 }
 
 .fill-blue-accent {
-  @apply fill-blue-200 transition-colors;
+  @apply fill-blue-200;
 }
 
 .fill-blue-text {
-  @apply fill-slate-800 transition-colors;
+  @apply fill-slate-800;
 }
 
 /* ========================================================================== */
 /* Green */
 /* ========================================================================== */
 .bg-green {
-  @apply bg-emerald-400 transition-colors;
+  @apply bg-emerald-400;
 }
 
 .fill-green {
-  @apply fill-emerald-400 transition-colors;
+  @apply fill-emerald-400;
 }
 
 .fill-green-highlight {
-  @apply fill-emerald-600 transition-colors;
+  @apply fill-emerald-600;
 }
 
 .fill-green-accent {
-  @apply fill-teal-300 transition-colors;
+  @apply fill-teal-300;
 }
 
 .fill-green-text {
-  @apply fill-neutral-900 transition-colors;
+  @apply fill-neutral-900;
 }
