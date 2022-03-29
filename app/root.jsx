@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
 import KeyPressAlert, {
   links as KeyPressAlertLinks,
@@ -26,18 +26,15 @@ export function meta() {
   return { title: 'Patrick Sullivan - Dev' };
 }
 
+//
+// [TODO] Do this instead: https://www.mattstobbs.com/remix-dark-mode/
+//
 const getIsDarkMode = () => {
   if (sessionStorage.getItem('darkModePreference') != null) {
     return sessionStorage.getItem('darkModePreference') === 'dark';
   }
 
-  const isDarkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
-
-  if (isDarkMode) {
-    document.documentElement.classList.add('dark');
-  }
-
-  return false;
+  return window.matchMedia('(prefers-color-scheme:dark)').matches;
 };
 
 const keyColors = {
@@ -55,6 +52,13 @@ export default function App() {
     isDarkMode = getIsDarkMode();
   } catch (error) {}
 
+  useEffect(() => {
+    const htmlNode = document.documentElement;
+    if (isDarkMode && !htmlNode.classList.contains('dark')) {
+      htmlNode.classList.add('dark');
+    }
+  }, [isDarkMode]);
+
   const handleKeyDown = (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
       return false;
@@ -63,23 +67,11 @@ export default function App() {
     const { key } = event;
 
     if (['r', 'g', 'b'].includes(key)) {
-      const nodes = document.querySelectorAll('[data-themed]');
-      nodes.forEach((node) => {
-        node.classList.replace(`bg-${keyColors[colorKeyPress]}`, `bg-${keyColors[key]}`);
-        node.classList.replace(`fill-${keyColors[colorKeyPress]}`, `fill-${keyColors[key]}`);
-        node.classList.replace(
-          `fill-${keyColors[colorKeyPress]}-accent`,
-          `fill-${keyColors[key]}-accent`
-        );
-        node.classList.replace(
-          `fill-${keyColors[colorKeyPress]}-highlight`,
-          `fill-${keyColors[key]}-highlight`
-        );
-        node.classList.replace(
-          `fill-${keyColors[colorKeyPress]}-text`,
-          `fill-${keyColors[key]}-text`
-        );
-      });
+      document.body.classList.replace(
+        `theme-${keyColors[colorKeyPress]}`,
+        `theme-${keyColors[key]}`
+      );
+
       setColorKeyPress(key);
       setIsAlertOpen(true);
     }
@@ -97,7 +89,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="theme-blue">
         <Outlet />
         {isAlertOpen && (
           <KeyPressAlert pressedKey={colorKeyPress} onClose={() => setIsAlertOpen(false)} />

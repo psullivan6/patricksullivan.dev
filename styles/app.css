@@ -16,68 +16,82 @@ body {
 /* ========================================================================== */
 /* Red */
 /* ========================================================================== */
-.bg-red {
-  @apply bg-rose-400;
+.theme-red [data-themed='bg-primary'] {
+  @apply bg-rose-400 dark:bg-red-900/10;
+
+  /* dark:bg-zinc-800 */
 }
 
-.fill-red {
-  @apply fill-rose-400;
+.theme-red [data-themed='bg-accent'] {
+  @apply bg-indigo-400 dark:bg-indigo-900/10;
 }
 
-.fill-red-highlight {
+.theme-red [data-themed='fill-primary'] {
+  @apply fill-rose-400 dark:fill-transparent dark:stroke-red-900;
+}
+
+.theme-red [data-themed='fill-highlight'] {
   @apply fill-rose-600;
 }
 
-.fill-red-accent {
-  @apply fill-red-200;
+.theme-red [data-themed='fill-accent'] {
+  @apply fill-red-200 dark:fill-transparent dark:stroke-fuchsia-900;
 }
 
-.fill-red-text {
-  @apply fill-stone-900;
+.theme-red [data-themed='fill-text'] {
+  @apply fill-stone-900 dark:fill-rose-900/75;
 }
 
 /* ========================================================================== */
 /* Blue */
 /* ========================================================================== */
-.bg-blue {
-  @apply bg-sky-400;
+.theme-blue [data-themed='bg-primary'] {
+  @apply bg-sky-400 dark:bg-slate-900;
 }
 
-.fill-blue {
-  @apply fill-cyan-300;
+.theme-blue [data-themed='bg-accent'] {
+  @apply bg-green-400 dark:bg-emerald-900/20;
 }
 
-.fill-blue-highlight {
+.theme-blue [data-themed='fill-primary'] {
+  @apply fill-cyan-300 dark:fill-transparent dark:stroke-cyan-800;
+}
+
+.theme-blue [data-themed='fill-highlight'] {
   @apply fill-blue-500;
 }
 
-.fill-blue-accent {
-  @apply fill-blue-200;
+.theme-blue [data-themed='fill-accent'] {
+  @apply fill-blue-200 dark:fill-transparent dark:stroke-blue-900;
 }
 
-.fill-blue-text {
-  @apply fill-slate-800;
+.theme-blue [data-themed='fill-text'] {
+  @apply fill-slate-800 dark:fill-blue-900;
 }
 
 /* ========================================================================== */
 /* Green */
 /* ========================================================================== */
-.bg-green {
+.theme-green [data-themed='bg-primary'] {
   @apply bg-emerald-400;
 }
 
-.fill-green {
-  @apply fill-emerald-400;
+.theme-green [data-themed='bg-accent'] {
+  @apply bg-orange-300;
 }
 
-.fill-green-highlight {
+.theme-green [data-themed='fill-primary'] {
+  @apply fill-emerald-400 dark:fill-transparent dark:stroke-green-900;
+}
+
+.theme-green [data-themed='fill-highlight'] {
   @apply fill-emerald-600;
 }
 
-.fill-green-accent {
-  @apply fill-teal-300;
+.theme-green [data-themed='fill-accent'] {
+  @apply fill-teal-300 dark:fill-transparent dark:stroke-teal-800;
 }
 
-.fill-green-text {
-  @apply fill-neutral-900;
+.theme-green [data-themed='fill-text'] {
+  @apply fill-neutral-900 dark:fill-emerald-600/50;
 }

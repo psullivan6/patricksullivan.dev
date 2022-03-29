@@ -15,7 +15,6 @@ const DarkModeToggle = () => {
         type="checkbox"
         name="darkModeToggle"
         id="darkModeToggle"
-        // onChange={handleToggle}
         onClick={handleToggle}
         className="peer block opacity-0 w-0 h-0"
         defaultChecked={isChecked}
@@ -32,8 +31,8 @@ const DarkModeToggle = () => {
       <svg
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute w-36 -top-12 -right-9 -z-10 fill-blue-highlight"
-        data-themed
+        className="absolute w-36 -top-12 -right-9 -z-10"
+        data-themed="fill-highlight"
       >
         <path
           className="dark:fill-stone-700"
